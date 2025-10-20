@@ -18,8 +18,9 @@ jobs:
       - name: Diff files /docs/**
         id: diff_files
         run: |
-            changed=$(git diff --name-only origin/${{ github.base_ref }} HEAD --relative docs/ | wc -l)
-            echo "::set-output name=changed::$changed"
+              changed=$(git diff --name-only origin/${{ github.base_ref }} HEAD --relative docs/ | wc -l)
+              echo "changed=$changed" >> $GITHUB_OUTPUT
+
 
       - uses: google-github-actions/auth@v2
         if: ${{ steps.diff_files.outputs.changed != '0' }}
