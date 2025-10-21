@@ -63,7 +63,7 @@ def generate_test_spec(document: str) -> str:
         max_output_tokens=MAX_OUTPUT_TOKENS,
         response_modalities=RESPONSE_MODALITIES,
         safety_settings=SAFETY_SETTINGS,
-        system_instruction=[types.Part.from_text(SYSTEM_INSTRUCTION)],
+        parts=[types.Part.from_text(text=SYSTEM_INSTRUCTION)],
     )
 
     response = client.models.generate_content(
