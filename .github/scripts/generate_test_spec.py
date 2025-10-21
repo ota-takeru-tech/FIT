@@ -50,21 +50,24 @@ def generate_test_spec(document: str) -> str:
         location=LOCATION
     )
 
-    contents = [
-        types.Content(
-            role="user",
-            parts=[types.Part.from_text(text=document)]  
-        )
-    ]
-
-    generate_content_config = types.GenerateContentConfig(
-        temperature=TEMPERATURE,
-        top_p=TOP_P,
-        max_output_tokens=MAX_OUTPUT_TOKENS,
-        response_modalities=RESPONSE_MODALITIES,
-        safety_settings=SAFETY_SETTINGS,
-        parts=[types.Part.from_text(text=SYSTEM_INSTRUCTION)],
+contents = [
+    types.Content(
+        role="system",
+        parts=[types.Part.from_text(text=SYSTEM_INSTRUCTION)]
+    ),
+    types.Content(
+        role="user",
+        parts=[types.Part.from_text(text=document)]
     )
+]
+
+generate_content_config = types.GenerateContentConfig(
+    temperature=TEMPERATURE,
+    top_p=TOP_P,
+    max_output_tokens=MAX_OUTPUT_TOKENS,
+    response_modalities=RESPONSE_MODALITIES,
+    safety_settings=SAFETY_SETTINGS,
+)
 
     response = client.models.generate_content(
         model=MODEL_NAME,
