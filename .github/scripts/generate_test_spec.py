@@ -7,7 +7,7 @@ from google.genai import types
 PROJECT_ID = "1020268302403"
 LOCATION = "us-central1"
 MODEL_NAME = "gemini-2.0-flash-exp"
-TEMPERATURE = 0
+TEMPERATURE = 0.5
 TOP_P = 0.95
 MAX_OUTPUT_TOKENS = 8192
 RESPONSE_MODALITIES = ["TEXT"]
