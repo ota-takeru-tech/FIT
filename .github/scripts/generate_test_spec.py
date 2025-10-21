@@ -53,7 +53,7 @@ def generate_test_spec(document: str) -> str:
     contents = [
         types.Content(
             role="user",
-            parts=[types.Part.from_text(document)]
+            parts=[types.Part.from_text(text=document)]  
         )
     ]
 
