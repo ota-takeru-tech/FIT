@@ -4,7 +4,7 @@ from google import genai
 from google.genai import types
 
 # 設定値
-PROJECT_ID = "fit-challenge-475700"
+PROJECT_ID = "perfect-atrium-476007-t9"
 LOCATION = "us-central1"
 MODEL_NAME = "gemini-2.0-flash-exp"
 TEMPERATURE = 0
